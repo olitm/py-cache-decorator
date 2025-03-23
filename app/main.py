@@ -1,4 +1,5 @@
 from typing import Callable
+from functools import wraps
 
 
 def cache(func: Callable) -> Callable:
@@ -9,7 +10,8 @@ def cache(func: Callable) -> Callable:
     """
     cache_data = {}
 
-    def wrapper(*args, **kwargs):
+    @wraps(func)
+    def wrapper(*args, **kwargs) -> Callable:
         """
         This wrapper will cache the result of a function
         :param args: args
