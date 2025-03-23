@@ -21,7 +21,7 @@ def cache(func: Callable) -> Callable:
         key = args + tuple(sorted(kwargs.items()))
 
         if key not in cache_data:
-            print("Calculation new result")
+            print("Calculating new result")
             result = func(*args, **kwargs)
             cache_data[key] = result
             return result
